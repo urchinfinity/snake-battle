@@ -1,0 +1,81 @@
+
+body {
+  background-color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 20px;
+}
+
+h2, p {
+  color: #333;
+}
+
+#game_board {
+  width: 500px;
+  height : 400px;
+  position: absolute;
+  //overflow: hidden;
+  background-color: #FFF;
+  border: 1px solid black;
+}
+
+#box {
+  width: 10px;
+  height : 10px;
+  position: absolute;
+  border: 2px solid black;
+  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
+#ball {
+  width: 10px;
+  height : 10px;
+  -webkit-border-radius: 10px;  /* support Safari, Chrome */
+  -moz-border-radius: 10px; /* support firefox */
+  border-radius: 10px;
+  position: absolute;
+}
+
+#prop {
+  width: 10px;
+  height : 10px;
+  -webkit-border-radius: 2px;  /* support Safari, Chrome */
+  -moz-border-radius: 2px; /* support firefox */
+  border-radius: 2px;
+  position: absolute;
+}
+
+#challenge {
+  width: 10px;
+  height : 10px;
+  -webkit-border-radius: 10px;  /* support Safari, Chrome */
+  -moz-border-radius: 10px; /* support firefox */
+  border-radius: 10px;
+  position: absolute;
+  border: 0px solid black;
+  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
+#brick {
+  width: 10px;
+  height : 10px;
+  background-color: black;
+}
