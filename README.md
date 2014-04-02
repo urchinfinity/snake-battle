@@ -1,4 +1,4 @@
-snack-battle
+snake-battle
 ============
 
-online interaction game
+online two-player game
