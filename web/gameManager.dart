@@ -1,30 +1,14 @@
 library gameManager;
 
 import 'dart:html';
-import 'ball.dart';
 //import 'prop.dart';
 //import 'challenge.dart';
 //import 'obstacle.dart';
 import 'initialData.dart';
 
-void createBox() {
-  user1.createBox();
-  user2.createBox();
-}
-
-void createBall() {
-  for (int i = 0; i < INITBALLLEN; i++) {
-    Ball singleBall = new Ball();
-    ball.add(singleBall);
-  }
-}
-
-void createChallenge() {
+void initChallenge() {
   helper.getChalLen();
   helper.getChalColor();
-  
-  user1.createChallenge();
-  user2.createChallenge();
 }
 
 void createObstacle() {
@@ -42,9 +26,20 @@ void createObstacle() {
 ////    }  
 //  });
 //}
-
+void initGame() {
+  initChallenge();
+  createObstacle();
+//  for (int i = 0; i < 2; i++) {
+//      Prop singleProp = new Prop();
+//      prop.add(singleProp);
+//  }
+}
 void startGame() {
   animator.start();
+  animator.add(user1.snake);
+  animator.add(user2.snake);
+  startArrowDownListener();
+  startKeyDownListener();
 }
 
 //void appendBox(int num) {
@@ -72,30 +67,30 @@ void startArrowDownListener() {
   var keyListener = document.onKeyDown.listen((KeyboardEvent evt){
     switch (evt.keyCode) {
       case ARROWLEFT:
-        if (user1.horAdder != SPACE) {
-          user1.verAdder = 0;
-          user1.horAdder = -SPACE;
+        if (user1.snake.horAdder != SPACE) {
+          user1.snake.verAdder = 0;
+          user1.snake.horAdder = -SPACE;
         }
         break;
         
       case ARROWRIGHT:
-        if (user1.horAdder != -SPACE) {
-          user1.verAdder = 0;
-          user1.horAdder = SPACE;
+        if (user1.snake.horAdder != -SPACE) {
+          user1.snake.verAdder = 0;
+          user1.snake.horAdder = SPACE;
         }
         break;
           
       case ARROWUP:
-        if(user1.verAdder != SPACE) {
-          user1.verAdder = -SPACE;
-          user1.horAdder = 0;
+        if(user1.snake.verAdder != SPACE) {
+          user1.snake.verAdder = -SPACE;
+          user1.snake.horAdder = 0;
         }
         break;
           
       case ARROWDOWN:
-        if (user1.verAdder != -SPACE) {
-          user1.verAdder = SPACE;
-          user1.horAdder = 0;
+        if (user1.snake.verAdder != -SPACE) {
+          user1.snake.verAdder = SPACE;
+          user1.snake.horAdder = 0;
         }
         break;
           
@@ -109,30 +104,30 @@ void startKeyDownListener() {
   var keyListener = document.onKeyDown.listen((KeyboardEvent evt){
     switch (evt.keyCode) {
       case KEYLEFT:
-        if (user2.horAdder != SPACE) {
-          user2.verAdder = 0;
-          user2.horAdder = -SPACE;
+        if (user2.snake.horAdder != SPACE) {
+          user2.snake.verAdder = 0;
+          user2.snake.horAdder = -SPACE;
         }
         break;
         
       case KEYRIGHT:
-        if (user2.horAdder != -SPACE) {
-          user2.verAdder = 0;
-          user2.horAdder = SPACE;
+        if (user2.snake.horAdder != -SPACE) {
+          user2.snake.verAdder = 0;
+          user2.snake.horAdder = SPACE;
         }
         break;
           
       case KEYUP:
-        if(user2.verAdder != SPACE) {
-          user2.verAdder = -SPACE;
-          user2.horAdder = 0;
+        if(user2.snake.verAdder != SPACE) {
+          user2.snake.verAdder = -SPACE;
+          user2.snake.horAdder = 0;
         }
         break;
           
       case KEYDOWN:
-        if (user2.verAdder != -SPACE) {
-          user2.verAdder = SPACE;
-          user2.horAdder = 0;
+        if (user2.snake.verAdder != -SPACE) {
+          user2.snake.verAdder = SPACE;
+          user2.snake.horAdder = 0;
         }
         break;
           

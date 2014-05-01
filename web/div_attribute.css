@@ -21,7 +21,7 @@ h2, p {
   border: 1px solid black;
 }
 
-#box {
+#snake {
   width: 10px;
   height : 10px;
   position: absolute;

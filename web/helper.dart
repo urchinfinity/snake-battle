@@ -21,8 +21,8 @@ class Helper {
   }
   
   bool coverUserBox(int left, int top, User user) {
-    for (int i = 0; i < user.box.length; i++) {
-      if (left == user.box[i].leftPos && top == user.box[i].topPos) {
+    for (int i = 0; i < user.snake.box.length; i++) {
+      if (left == user.snake.box[i].leftPos && top == user.snake.box[i].topPos) {
         return true;
       }
     }
@@ -30,8 +30,8 @@ class Helper {
   }
   
   bool coverBall(int left, int top) {
-    for (int i = 0; i < ball.length; i++) {
-      if (left == ball[i].leftPos && top == ball[i].topPos) {
+    for (int i = 0; i < INITBALLLEN; i++) {
+      if (left == ballGroup.ball[i].leftPos && top == ballGroup.ball[i].topPos) {
         return true;
       }
     }
@@ -71,8 +71,8 @@ class Helper {
 }
 
 abstract class divAttribute {
-  void initDiv();
-  void initColor();
+//  void initDiv();
+//  void initColor();
   void setPosition();
   void setColor();
   void showDiv();

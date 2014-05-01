@@ -8,6 +8,8 @@ import 'helper.dart';
 import 'userManager.dart';
 import 'animator.dart';
 
+const USER1ID = 1;
+const USER2ID = 2;
 
 const ARROWLEFT = 37;
 const ARROWRIGHT = 39;
@@ -47,8 +49,8 @@ const SPACE = 10;
 const DISTANCE = 30;
 const ROW = 8;
 const COLUMN = 11;
-const DURATION = 120;
-const SPEEDRATE = 0.995;
+const DURATION = 5;
+const SPEEDRATE = 0.997;
 const COLORNUM = 6;
 const INITBOXLEN = 10;
 const INITBALLLEN = 5;
@@ -66,11 +68,11 @@ List<String> chalColor = new List(INITCHALLEN);
 
 Random random = new Random();
 
-List<Ball> ball = new List();
+BallGroup ballGroup = new BallGroup();
 List<Skill> skill = new List();
 
-User user1 = new User(USER1LEFT, USER1TOP);
-User user2 = new User(USER2LEFT, USER2TOP);
+User user1 = new User(USER1ID);
+User user2 = new User(USER2ID);
 
 Helper helper = new Helper();
 Animator animator = new Animator();

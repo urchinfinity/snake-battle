@@ -3,7 +3,8 @@ library box;
 import 'dart:html';
 import 'initialData.dart';
 import 'helper.dart';
-import 'userManager.dart';
+import 'snake.dart';
+//import 'userManager.dart';
 
 class Box implements divAttribute {
   DivElement boxDiv;
@@ -11,21 +12,40 @@ class Box implements divAttribute {
   int topPos;
   String color;
   
-  Box(this.leftPos, this.topPos) {
-    initDiv();
-    initColor();
+  int order; //for challenge
+  
+  Box.snake(this.leftPos, this.topPos) {
+    initSnakeDiv();
+    initSnakeColor();
     setPosition();
     setColor();
     showDiv();
   }
   
-  void initDiv() {
-    boxDiv = new DivElement();
-    boxDiv.id = 'box';
+  Box.chal(this.leftPos, this.topPos, this.order) {
+    initChalDiv();
+    initChalColor();
+    setPosition();
+    setColor();
+    showDiv(); 
   }
   
-  void initColor() {
+  void initSnakeDiv() {
+    boxDiv = new DivElement();
+    boxDiv.id = 'snake';
+  }
+  
+  void initChalDiv() {
+    boxDiv = new DivElement();
+    boxDiv.id = 'challenge';
+  }
+  
+  void initSnakeColor() {
     color = INITCOLOR;
+  }
+  
+  void initChalColor() {
+    color = chalColor[order];
   }
   
   void setPosition() {
@@ -46,11 +66,11 @@ class Box implements divAttribute {
     setColor();
   }
   
-  void setHead(User user) {
-    user.left = (user.left + user.horAdder) % BOARDWIDTH;
-    user.top = (user.top + user.verAdder) % BOARDHEIGHT;
-    leftPos = user.left;
-    topPos = user.top;
+  void setHead(Snake snake) {
+    snake.left = (snake.left + snake.horAdder) % BOARDWIDTH;
+    snake.top = (snake.top + snake.verAdder) % BOARDHEIGHT;
+    leftPos = snake.left;
+    topPos = snake.top;
     
     setPosition();
     resetBorder();
@@ -111,11 +131,11 @@ class Box implements divAttribute {
       case SHIFTDOWN:
         box.boxDiv.style.borderBottomWidth = helper.cssFormat(width);
         break;
-      }
+    }
   }
   
-  void fillColor(String color) {
-    color = color;
+  void fillColor(String targetColor) {
+    color = targetColor;
     setColor();
   }
 }
